@@ -1,0 +1,55 @@
+<!-- View: News -->
+
+{% if data.items %}
+
+	<div id='news-view' data-aos="fade-right">
+	
+		{% if data.banner %}
+			<img src="{{ file_url(data.banner) }}" alt="{{ 'Banner'|t }}">
+	    {% endif %}	
+
+		<div class="separator"></div>
+		{#  <h2 class="view-title"> {{ 'Our Blog'|t }} </h2> #}
+
+		<div class='news-items view-content container'>
+
+			<div class="views-view-grid horizontal cols-3 clearfix">
+				<div class="items">
+
+					<!-- News -->
+					{% for item in data.items %}	
+
+						{% set link = url('entity.node.canonical', {'node': item.id}) %}
+
+						<div class="box">
+							<div class="views-field views-field-field-image">
+								<div class="field-content"> 
+									<a href="{{ link }}">
+										<img src={{ file_url(item.get('field_image').entity.uri.value) }} loading="lazy" width="800" height="350" alt="image" class="image-field">
+									</a>
+								</div>
+							</div>
+							<div class="views-field views-field-title">
+								<span class="field-content">
+									<a href="{{ link }}">
+										{{ item.get('title').value }}
+									</a>
+								</span>
+							</div>
+							<div>
+								<div>
+									<p> {{ item.get('field_summary').value }} </p>
+								</div>
+							</div>
+						</div>
+					
+					{% endfor %}
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+  
+{% endif %}	

@@ -1,0 +1,56 @@
+<!-- Block: Contact -->
+{% if data.address or data.phone or data.email %}
+
+    <div id="contacts-block">
+
+        <h2 class="block-title">{{ 'Contact Us'|t }}</h2>
+
+        <div class="contact-items">
+            <img src="{{ file_url(data.logo) }}" alt="{{ 'Contact'|t }}">
+            <h4 class="contact-address"> {{ data.address }} </h4>
+            <h4 class="contact-phone"> {{ 'Phone:'|t }} {{ data.phone }} </h4>
+            <h4 class="contact-email"> {{ 'Email:'|t }} {{ data.email }} </h4>
+
+            <ul class="social-icons">
+
+                {% if data.facebook %}
+                    <li><a href="{{ data.facebook }}" target="_blank"><i class="icon-facebook"></i></a></li>
+                {% endif %}	
+                
+                {% if data.twitter %}
+                    <li><a href="{{ data.twitter }}" target="_blank"><i class="icon-twitter"></i></a></li>
+                {% endif %}	
+
+                {% if data.instagram %}
+                    <li><a href="{{ data.instagram }}" target="_blank"><i class="icon-instagram"></i></a></li>
+                {% endif %}	
+
+                {% if data.linkedin %}
+                    <li><a href="{{ data.linkedin }}" target="_blank"><i class="icon-linkedin"></i></a></li>
+                {% endif %}	
+
+                {% if data.youtube %}
+                    <li><a href="{{ data.youtube }}" target="_blank"><i class="icon-youtube"></i></a></li>
+                {% endif %}	
+
+                {% if data.vimeo %}
+                    <li><a href="{{ data.vimeo }}" target="_blank"><i class="icon-vimeo"></i></a></li>
+                {% endif %}	
+
+                {% if data.telegram %}
+                    <li><a href="{{ data.telegram }}" target="_blank"><i class="icon-telegram"></i></a></li>
+                {% endif %}	
+
+                {% if data.whatsapp %}
+                    <li><a href="{{ data.whatsapp }}" target="_blank"><i class="icon-whatsapp"></i></a></li>
+                {% endif %}	
+
+            </ul>    
+
+        </div>
+
+        <a class="button" href="/Contacto">{{ 'Send message'|t  }}</a>
+
+    </div>
+
+{% endif %}	

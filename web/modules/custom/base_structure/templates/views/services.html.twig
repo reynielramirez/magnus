@@ -1,0 +1,39 @@
+<!-- View: Services -->
+
+{% if data.items %}
+
+	<div id='services-view' data-aos="fade-right">
+	
+	    {% if data.banner %}
+			<img src="{{ file_url(data.banner) }}" alt="{{ 'Banner'|t }}">
+	    {% endif %}	
+
+		<div class="separator"></div>
+		{#  <h2 class="view-title"> {{ 'Services'|t }} </h2> #}
+		
+		<div class='services-items view-content container'>
+
+			<div class="views-view-grid horizontal cols-3 clearfix">
+				<div class="items">
+
+					<!-- Services -->
+					{% for item in data.items %}
+
+						<div class="service">
+							<div class="service-icon">
+								<img class="svg-icon" src={{ file_url(item.get('field_image').entity.uri.value) }} alt="service name">
+							</div>
+							<h3> {{ item.get('title').value }} </h3>
+							<p class="summary"> {{ item.get('field_description').value | raw }} </p>
+						</div>
+
+					{% endfor %}
+
+				</div>
+			</div>
+
+		</div>
+		
+	</div>
+  
+{% endif %}	

@@ -1,0 +1,30 @@
+<!-- Block: Links -->
+
+{% if data %}
+
+	<div id='links-block'>
+	
+      	<h2 class="block-title">{{ 'Sites of interest'|t }}</h2>
+    
+		<div class="block-content">
+			<div class="field field--name-body field--type-text-with-summary field--label-hidden field-item">
+				<ul>
+
+					<!-- Links -->
+					{% for item in data %}
+				
+						<li class='link'>
+							<a href='{{ item.get("field_link").uri }}'> 
+								{{ item.get('title').value }} 
+							</a>
+						</li>
+
+					{% endfor %}
+
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+  
+{% endif %}	

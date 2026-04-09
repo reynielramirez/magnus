@@ -1,0 +1,42 @@
+<!-- View: Products -->
+
+{% if data.items %}
+
+	<div id='products-view' data-aos="fade-right">
+	
+	    {% if data.banner %}
+			<img src="{{ file_url(data.banner) }}" alt="{{ 'Banner'|t }}">
+	    {% endif %}	
+
+		<div class="separator"></div>
+		{#  <h2 class="view-title"> {{ 'Products'|t }} </h2> #}
+		
+		<div class='products-items view-content container'>
+
+			<div class="views-view-grid horizontal cols-3 clearfix">
+				<div class="items">
+
+					<!-- Products -->
+					{% for item in data.items %}
+
+						<div class="product service">
+							<h3> {{ item.get('title').value }} </h3>
+							<div class="product-icon">
+								<img src={{ file_url(item.get('field_image').entity.uri.value) }} alt="product name">
+							</div>
+							<p class="summary"> {{ item.get('field_summary').value }} </p>
+							<p><a class="button" href="{{ url('entity.node.canonical', {'node': item.id}) }}"> 
+								{{ 'Read more'|t }} 
+							</a></p>
+						</div>
+
+					{% endfor %}
+
+				</div>
+			</div>
+
+		</div>
+		
+	</div>
+  
+{% endif %}	

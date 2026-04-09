@@ -1,0 +1,81 @@
+<!-- View: About Us -->
+
+{% if data %}
+
+	<div id='about-view' data-aos="fade-right">
+	
+		{% if data.banner %}
+			<img src="{{ file_url(data.banner) }}" alt="{{ 'Banner'|t }}">
+	    {% endif %}	
+
+		<div class="container">
+
+			<div class="separator"></div>
+			{# <h2 class="view-title"> {{ 'About Us'|t }} </h2> #}
+
+			{% if data.description %}
+				<div class='about-description'>
+					<p>  {{ data.description }}  </p>
+				</div>
+			{% endif %}	
+
+			<div class='about-items view-content container'>
+
+				<div class="about-view-grid horizontal cols-3 clearfix">
+					<div class="items">
+						<div class="item">
+							<div class="about-icon">
+								<img class="svg-icon" src={{ file_url(data.mission_img) }}>
+							</div>
+							<h3> {{ 'Mission'|t }} </h3>
+							<p class="summary"> {{ data.mission }} </p>			
+						</div>
+						<div class="item">
+							<div class="about-icon">
+								<img class="svg-icon" src={{ file_url(data.vision_img) }}>
+							</div>
+							<h3> {{ 'Vision'|t }} </h3>
+							<p class="summary"> {{ data.vision }} </p>			
+						</div>
+						<div class="item">
+							<div class="about-icon">
+								<img class="svg-icon" src={{ file_url(data.purpose_img) }}>
+							</div>
+							<h3> {{ 'Purpose'|t }} </h3>
+							<p class="summary"> {{ data.purpose }} </p>			
+						</div>
+					</div>	
+				</div>
+
+			</div>
+
+			<h2 class="view-title values-title"> {{ 'Values'|t }} </h2>
+
+			<div class='about-items view-content container'>
+
+				<div class="about-view-grid horizontal cols-3 clearfix">
+					<div class="items">
+				
+						<!-- Values -->
+						{% for item in data.items %}	
+
+							<div class="item">
+								<div class="about-icon">
+									<img class="svg-icon" src={{ file_url(item.get('field_image').entity.uri.value) }}>
+								</div>
+								<h3> {{ item.get('title').value }} </h3>
+								<p class="summary"> {{ item.get('field_description').value }} </p>			
+							</div>
+
+						{% endfor %}
+
+					</div>	
+				</div>
+
+			</div>		
+
+		</div>
+		
+	</div>
+  
+{% endif %}	
