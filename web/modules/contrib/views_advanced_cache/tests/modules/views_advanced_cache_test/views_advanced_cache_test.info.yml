@@ -1,0 +1,16 @@
+name: Views Advanced Cache Tests
+type: module
+description: Test configuration for the views_advanced_cache module.
+package: Testing
+dependencies:
+  - drupal:node
+  - drupal:text
+  - drupal:field
+  - drupal:menu_ui
+  - drupal:views
+  - views_advanced_cache:views_advanced_cache
+
+# Information added by Drupal.org packaging script on 2025-06-18
+version: '2.0.2'
+project: 'views_advanced_cache'
+datestamp: 1750220010

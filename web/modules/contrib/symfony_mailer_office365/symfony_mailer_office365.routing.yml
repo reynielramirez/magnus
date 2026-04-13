@@ -1,0 +1,17 @@
+
+symfony_mailer_office365.callback:
+  path: '/office365/oauth/callback'
+  defaults:
+    _controller: '\Drupal\symfony_mailer_office365\Controller\Office365Controller::OAuthCallback'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
+
+symfony_mailer_office365.config:
+  path: '/admin/config/system/mailer/office365'
+  defaults:
+    _title: 'Office365 Configuration'
+    _form: 'Drupal\symfony_mailer_office365\Form\Office365ConfigForm'
+  requirements:
+    _permission: 'administer mailer'

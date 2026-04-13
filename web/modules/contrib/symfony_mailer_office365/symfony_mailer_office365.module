@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * Implements hook_cron().
+ */
+function symfony_mailer_office365_cron() {
+  /** @var \Drupal\symfony_mailer_office365 */
+  $token_state_manager = \Drupal::service('symfony_mailer_office365.token_state_manager');
+  $token_state_manager->refresh(TRUE);
+}

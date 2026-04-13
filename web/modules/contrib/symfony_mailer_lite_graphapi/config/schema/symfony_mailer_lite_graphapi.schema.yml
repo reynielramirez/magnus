@@ -1,0 +1,13 @@
+symfony_mailer_lite.transport_plugin.graphapi:
+  type: mapping
+  label: 'MS Graph API'
+  mapping:
+    client_id:
+      type: string
+      label: 'Client ID'
+    client_secret:
+      type: string
+      label: 'Client Secret'
+    tenant_id:
+      type: string
+      label: 'Tenant ID'

@@ -1,0 +1,7 @@
+# Views Advanced Cache dictionary
+
+# Initialism used in testing.
+vact
+
+# Author names.
+poindexter

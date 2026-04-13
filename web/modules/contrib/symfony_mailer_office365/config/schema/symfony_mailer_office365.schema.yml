@@ -1,0 +1,16 @@
+symfony_mailer_office365.config:
+  type: config_object
+  label: 'Symfony Mailer office365 config'
+  mapping:
+    client_id:
+      type: string
+      label: 'Client ID'
+    client_secret:
+      type: string
+      label: 'Client Secret'
+    tenant_id:
+      type: string
+      label: 'Tenant ID'
+    mail:
+      type: string
+      label: 'E-Mail'

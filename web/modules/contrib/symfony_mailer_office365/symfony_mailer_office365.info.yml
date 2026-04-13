@@ -1,0 +1,12 @@
+name: 'Symfony Mailer office365'
+type: module
+description: 'Office365 OAuth Integration'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - symfony_mailer:symfony_mailer
+
+# Information added by Drupal.org packaging script on 2025-09-17
+version: '1.0.0-alpha4'
+project: 'symfony_mailer_office365'
+datestamp: 1758107221

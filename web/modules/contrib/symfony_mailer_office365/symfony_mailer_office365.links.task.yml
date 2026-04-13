@@ -1,0 +1,5 @@
+symfony_mailer.override.status:
+  title: Office365
+  description: 'Office365 configuration.'
+  base_route: entity.mailer_policy.collection
+  route_name: symfony_mailer_office365.config

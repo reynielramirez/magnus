@@ -1,0 +1,28 @@
+{
+    "name": "drupal/symfony_mailer_lite_graphapi",
+    "description": "Use the Microsoft Graph API to send mails.",
+    "type": "drupal-module",
+    "homepage": "https://drupal.org/project/symfony_mailer_lite_graphapi",
+    "authors": [
+        {
+            "name": "Boris Böhne (drubb)",
+            "homepage": "https://www.drupal.org/u/drubb",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Christian Adamski (christianadamski)",
+            "homepage": "https://www.drupal.org/u/christianadamski",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://drupal.org/project/issues/symfony_mailer_lite_graphapi",
+        "source": "https://cgit.drupalcode.org/symfony_mailer_lite_graphapi"
+    },
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/symfony_mailer_lite": "^2.0",
+        "vitrus/symfony-office-graph-mailer": "v0.0.1"
+    }
+}

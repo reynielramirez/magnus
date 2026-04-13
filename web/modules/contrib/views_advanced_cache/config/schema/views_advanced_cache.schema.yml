@@ -1,0 +1,81 @@
+
+advanced_views_cache_strings:
+  type: sequence
+  label: A sequence of cache tags or contexts to add or remove from a view.
+  sequence:
+    type: string
+    label: Cache tag/context string
+    constraints:
+      Regex:
+        # Forbid any kind of control character.
+        pattern: /([^\PC])/u
+        match: false
+        message: 'Tag is not allowed to span multiple lines or contain control characters.'
+
+advanced_views_cache_lifespan:
+  type: integer
+  label: A choice of the number of seconds to cache a query or result.
+  constraints:
+    Choice:
+      - -1
+      - 0
+      - 60
+      - 300
+      - 900
+      - 1800
+      - 3600
+      - 21600
+      - 43200
+      - 86400
+      - 604800
+
+advanced_views_cache_lifespan_custom:
+  type: integer
+  label: A choice of the number of seconds to cache a query or result.
+  nullable: true
+  constraints:
+    Range:
+      min: -1
+      # Max is 32 bit PHP_MAX_INT. Or approx 68 years.
+      max: 2147483647
+
+views.cache.advanced_views_cache:
+  type: views_cache
+  label: Views Advanced Cache
+  constraints:
+    FullyValidatable: ~
+  mapping:
+    options:
+      type: mapping
+      label: Caching options for Views Advanced Cache
+      mapping:
+        cache_tags:
+          type: advanced_views_cache_strings
+          label: Cache tags to add to a view
+        cache_tags_exclude:
+          type: advanced_views_cache_strings
+          label: Cache tags to remove from a view if present
+        cache_tags_exclude_regex:
+          type: advanced_views_cache_strings
+          label: Cache tags to remove from a view if present using a regex.
+        cache_tags_for_row:
+          type: boolean
+          label: Set TRUE if cache tag changes should also be made to each row.
+        cache_contexts:
+          type: advanced_views_cache_strings
+          label: Cache contexts to add from a view
+        cache_contexts_exclude:
+          type: advanced_views_cache_strings
+          label: Cache contexts to remove from a view if present
+        results_lifespan:
+          type: advanced_views_cache_lifespan
+          label: The length of time raw query results should be cached.
+        results_lifespan_custom:
+          type: advanced_views_cache_lifespan_custom
+          label: Length of time in seconds raw query results should be cached.
+        output_lifespan:
+          type: advanced_views_cache_lifespan
+          label: The length of time rendered HTML output should be cached.
+        output_lifespan_custom:
+          type: advanced_views_cache_lifespan_custom
+          label: Length of time in seconds rendered HTML output should be cached.

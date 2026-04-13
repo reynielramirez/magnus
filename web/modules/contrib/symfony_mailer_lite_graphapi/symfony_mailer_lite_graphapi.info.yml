@@ -1,0 +1,13 @@
+name: 'Symfony Mailer Lite Graph API Transport'
+type: module
+description: 'Use the Microsoft Graph API to send mails.'
+package: Mail
+configure: entity.symfony_mailer_lite_transport.collection
+core_version_requirement: ^10.1 || ^11
+dependencies:
+  - symfony_mailer_lite:symfony_mailer_lite (^2.0)
+
+# Information added by Drupal.org packaging script on 2025-05-13
+version: '1.0.1'
+project: 'symfony_mailer_lite_graphapi'
+datestamp: 1747147517

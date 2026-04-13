@@ -1,0 +1,14 @@
+services:
+  symfony_mailer_office365.esmtp_transport_factory:
+    class: Drupal\symfony_mailer_office365\Office365EsmtpTransportFactory
+    arguments: ['@symfony_mailer_office365.xoauth2_authenticator']
+    tags:
+      - { name: mailer.transport_factory }
+
+  symfony_mailer_office365.token_state_manager:
+    class: Drupal\symfony_mailer_office365\TokenStateManager
+    arguments: ['@state', '@config.factory', '@language_manager']
+
+  symfony_mailer_office365.xoauth2_authenticator:
+    class: Drupal\symfony_mailer_office365\Transport\Smtp\Auth\XOAuth2Authenticator
+    arguments: ['@symfony_mailer_office365.token_state_manager']

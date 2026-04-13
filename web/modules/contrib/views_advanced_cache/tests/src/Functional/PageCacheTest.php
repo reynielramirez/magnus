@@ -1,0 +1,114 @@
+<?php
+
+namespace Drupal\Tests\views_advanced_cache\Functional;
+
+use Drupal\Core\Url;
+use Drupal\Tests\BrowserTestBase;
+use Drupal\Tests\system\Functional\Cache\AssertPageCacheContextsAndTagsTrait;
+use Drupal\views\Entity\View;
+
+/**
+ * Test advanced cache tags are applied and removed from view as configured.
+ *
+ * @group views_advanced_cache
+ */
+class PageCacheTest extends BrowserTestBase {
+
+  use AssertPageCacheContextsAndTagsTrait;
+
+  /**
+   * {@inheritdoc}
+   */
+  protected static $modules = [
+    'views',
+    'views_advanced_cache_test',
+  ];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
+
+  /**
+   * Test page response cache tags for a view.
+   */
+  public function testPageCache() {
+    // Create some test content.
+    $nodes = [];
+    $node_cache_tags = [];
+    for ($i = 1; $i <= 3; $i++) {
+      $test_node = $this->drupalCreateNode([
+        'title' => "Test $i",
+        'type' => 'test',
+      ]);
+      $node_cache_tags[] = 'node:' . $test_node->id();
+
+      $nodes[] = $test_node;
+    }
+
+    // And load the page view with our test cache contexts and tags.
+    $cache_contexts = [
+      'languages:language_content',
+      'languages:language_interface',
+      'theme',
+      'user',
+      'url.query_args:_wrapper_format',
+    ];
+    $cache_tags = [
+      'config:user.role.anonymous',
+      'config:views.view.views_advanced_cache_test',
+      'http_response',
+      'rendered',
+      'vact:node_list:test',
+    ];
+
+    $url = Url::fromRoute('view.views_advanced_cache_test.page_test', []);
+    $this->assertPageCacheContextsAndTags(
+      $url,
+      $cache_contexts,
+      array_merge($cache_tags, $node_cache_tags)
+    );
+
+    // Then remove our changes to the contexts and tags.
+    $display_name = 'page_test';
+    /** @var Drupal\views\Entity\View $view */
+    $view = View::load('views_advanced_cache_test');
+    $cache_options = $view
+      ->getDisplay($display_name)['display_options']['cache']['options'] ?? [];
+    $cache_options['cache_tags'] = [];
+    $cache_options['cache_tags_exclude'] = [];
+    $cache_options['cache_contexts'] = [];
+    $cache_options['cache_contexts_exclude'] = [];
+    $display = &$view->getDisplay($display_name);
+    $display['display_options']['cache']['options'] = $cache_options;
+    // View must be valid.
+    $violations = iterator_to_array($view->getTypedData()->validate());
+    $this->assertTrue(empty($violations), (string) ($violations[0] ?? ''));
+    $view->save();
+
+    // And request the view again.
+    $cache_contexts = [
+      'languages:language_content',
+      'languages:language_interface',
+      'theme',
+      'user.permissions',
+      'user.node_grants:view',
+      'url.query_args:_wrapper_format',
+    ];
+    $cache_tags = [
+      'config:user.role.anonymous',
+      'config:views.view.views_advanced_cache_test',
+      'http_response',
+      'rendered',
+      'node_list',
+    ];
+
+    $url = Url::fromRoute('view.views_advanced_cache_test.page_test', []);
+    $this->assertPageCacheContextsAndTags(
+      $url,
+      $cache_contexts,
+      array_merge($cache_tags, $node_cache_tags)
+    );
+  }
+
+}
