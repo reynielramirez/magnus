@@ -2,11 +2,37 @@
 
 {% if data %}
 
-	<div id='about-view' data-aos="fade-right">
-	
-		{% if data.banner %}
-			<img src="{{ file_url(data.banner) }}" alt="{{ 'Banner'|t }}">
-	    {% endif %}	
+	<div
+		id='about-view' data-aos="fade-right">
+
+		<!-- Banner Section -->
+		<section class="hero-banner position-relative">
+			{% if data.banner %}
+				<div class="banner-background">
+					<img src="{{ file_url(data.banner) }}" alt="{{ 'Banner'|t }}" class="w-100 h-100 object-fit-cover">
+				</div>
+			{% endif %}
+
+			<!-- Overlay for better text readability -->
+			<div class="banner-overlay position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
+
+			{% if data.banner_text %}
+				<!-- Banner Content -->
+				<div class="banner-content position-relative z-3">
+					<div class="container">
+						<div class="row justify-content-center align-items-center min-vh-75">
+							<div class="col-lg-8 col-md-10 text-center text-white">
+								<h1 class="display-4 fw-bold mb-4">{{ 'About Us'|t }}</h1>
+								<p class="lead mb-0">{{ data.banner_text|slice(0, 200) }}
+									{% if data.banner_text|length > 200 %}...
+									{% endif %}
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</section>
 
 		<div class="container">
 
@@ -15,9 +41,11 @@
 
 			{% if data.description %}
 				<div class='about-description'>
-					<p>  {{ data.description }}  </p>
+					<p>
+						{{ data.description }}
+					</p>
 				</div>
-			{% endif %}	
+			{% endif %}
 
 			<div class='about-items view-content container'>
 
@@ -27,55 +55,74 @@
 							<div class="about-icon">
 								<img class="svg-icon" src={{ file_url(data.mission_img) }}>
 							</div>
-							<h3> {{ 'Mission'|t }} </h3>
-							<p class="summary"> {{ data.mission }} </p>			
+							<h3>
+								{{ 'Mission'|t }}
+							</h3>
+							<p class="summary">
+								{{ data.mission }}
+							</p>
 						</div>
 						<div class="item">
 							<div class="about-icon">
 								<img class="svg-icon" src={{ file_url(data.vision_img) }}>
 							</div>
-							<h3> {{ 'Vision'|t }} </h3>
-							<p class="summary"> {{ data.vision }} </p>			
+							<h3>
+								{{ 'Vision'|t }}
+							</h3>
+							<p class="summary">
+								{{ data.vision }}
+							</p>
 						</div>
 						<div class="item">
 							<div class="about-icon">
 								<img class="svg-icon" src={{ file_url(data.purpose_img) }}>
 							</div>
-							<h3> {{ 'Purpose'|t }} </h3>
-							<p class="summary"> {{ data.purpose }} </p>			
+							<h3>
+								{{ 'Purpose'|t }}
+							</h3>
+							<p class="summary">
+								{{ data.purpose }}
+							</p>
 						</div>
-					</div>	
+					</div>
 				</div>
 
 			</div>
 
-			<h2 class="view-title values-title"> {{ 'Values'|t }} </h2>
+			<h2 class="view-title values-title">
+				{{ 'Values'|t }}
+			</h2>
 
 			<div class='about-items view-content container'>
 
 				<div class="about-view-grid horizontal cols-3 clearfix">
-					<div class="items">
-				
+					<div
+						class="items">
+
 						<!-- Values -->
-						{% for item in data.items %}	
+						{% for item in data.items %}
 
 							<div class="item">
 								<div class="about-icon">
 									<img class="svg-icon" src={{ file_url(item.get('field_image').entity.uri.value) }}>
 								</div>
-								<h3> {{ item.get('title').value }} </h3>
-								<p class="summary"> {{ item.get('field_description').value }} </p>			
+								<h3>
+									{{ item.get('title').value }}
+								</h3>
+								<p class="summary">
+									{{ item.get('field_description').value }}
+								</p>
 							</div>
 
 						{% endfor %}
 
-					</div>	
+					</div>
 				</div>
 
-			</div>		
+			</div>
 
 		</div>
-		
+
 	</div>
-  
-{% endif %}	
+
+{% endif %}

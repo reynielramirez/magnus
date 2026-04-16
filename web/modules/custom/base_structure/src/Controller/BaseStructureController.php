@@ -65,6 +65,7 @@ class BaseStructureController extends ControllerBase {
 		$data["vision_img"] = $service->getConfigURL("vision_img");
 		$data["purpose"] = $service->getConfigText("purpose");
 		$data["purpose_img"] = $service->getConfigURL("purpose_img");
+		$data["banner_text"] = $service->getConfigText("about_text");
 
 		$node_ids = Drupal::entityQuery('node')
             ->condition('type','values')
@@ -100,6 +101,8 @@ class BaseStructureController extends ControllerBase {
 		$language = Drupal::languageManager()->getCurrentLanguage()->getId();
 
         $data["banner"] = $service->getConfigURL("products_banner");
+		$data["text"] = $service->getConfigText("products_text");
+
 
 		$node_ids = Drupal::entityQuery('node')
             ->condition('type','products')
@@ -137,6 +140,8 @@ class BaseStructureController extends ControllerBase {
 		$language = Drupal::languageManager()->getCurrentLanguage()->getId();
 
         $data["banner"] = $service->getConfigURL("services_banner");
+		$data["text"] = $service->getConfigText("services_text");
+
 
 		$node_ids = Drupal::entityQuery('node')
             ->condition('type','services')
@@ -174,6 +179,7 @@ class BaseStructureController extends ControllerBase {
 		$language = Drupal::languageManager()->getCurrentLanguage()->getId();
 
         $data["banner"] = $service->getConfigURL("news_banner");
+		$data["text"] = $service->getConfigText("news_text");
 
 		$node_ids = Drupal::entityQuery('node')
             ->condition('type','news')
@@ -220,6 +226,7 @@ class BaseStructureController extends ControllerBase {
 		$language = Drupal::languageManager()->getCurrentLanguage()->getId();
 
         $data["banner"] = $service->getConfigURL("faq_banner");
+		$data["text"] = $service->getConfigText("faq_text");
 
 		$node_ids = Drupal::entityQuery('node')
             ->condition('type','faq')
@@ -262,6 +269,7 @@ class BaseStructureController extends ControllerBase {
 		$service = Drupal::getContainer()->get('base_structure_service');
 
         $data["banner"] = $service->getConfigURL("contact_banner");
+		$data["text"] = $service->getConfigText("contact_us_text");
 
 		//$block = Block::load('feedback-form'); //Block Name in Block Design
 		
