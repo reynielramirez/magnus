@@ -67,29 +67,29 @@ class StaticContentForm extends FormBase
 
         $this->service->addGroup($form, 'products_services', 'Products and services');
         $this->service->addImage($form, 'products_services', 'products_banner', 'Products banner image');
-        $this->service->addTextarea($form,'products_services','products_text','Text image');
+        $this->service->addTextarea($form,'products_services','products_text','Text banner');
         $this->service->addImage($form, 'products_services', 'services_banner', 'Services banner image');
-        $this->service->addTextarea($form,'products_services','services_text','Text image');
+        $this->service->addTextarea($form,'products_services','services_text','Text banner');
 
         // Blog ---------------------------------------------
 
         $this->service->addGroup($form, 'news', 'Blog');
         $this->service->addImage($form, 'news', 'news_banner', 'Banner image');
-        $this->service->addTextarea($form,'news','news_text','Text image');
+        $this->service->addTextarea($form,'news','news_text','Text banner');
 
 
         // FAQ ---------------------------------------------
 
         $this->service->addGroup($form, 'faq', 'FAQ');
         $this->service->addImage($form, 'faq', 'faq_banner', 'Banner image');
-        $this->service->addTextarea($form,'faq','faq_text','Text image');
+        $this->service->addTextarea($form,'faq','faq_text','Text banner');
 
 
         // Contact Us ---------------------------------------------
 
         $this->service->addGroup($form, 'contact_us', 'Contact');
         $this->service->addImage($form, 'contact_us', 'contact_banner', 'Banner image');
-        $this->service->addTextarea($form, 'contact_us', 'contact_text', 'Text image');
+        $this->service->addTextarea($form, 'contact_us', 'contact_text', 'Text banner');
         $this->service->addImage($form, 'contact_us', 'logo', 'Logo');
         $this->service->addAddress($form, 'contact_us', 'address', 'Address');
         $this->service->addPhone($form, 'contact_us', 'phone', 'Phone');
@@ -162,7 +162,7 @@ class StaticContentForm extends FormBase
         // Contact Us ---------------------------------------------
 
         $this->service->saveImage('contact_banner', $data);
-        $this->service->saveText('contact_us_text', $data);
+        $this->service->saveText('contact_text', $data);
         $this->service->saveImage('logo', $data);
         $this->service->saveText('address', $data);
         $this->service->saveText('phone', $data);

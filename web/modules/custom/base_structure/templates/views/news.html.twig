@@ -2,28 +2,53 @@
 
 {% if data.items %}
 
-	<div id='news-view' data-aos="fade-right">
-	
-		{% if data.banner %}
-			<img src="{{ file_url(data.banner) }}" alt="{{ 'Banner'|t }}">
-	    {% endif %}	
+	<div
+		id='news-view' data-aos="fade-right">
+    <!-- Banner Section -->
+		<section class="hero-banner position-relative">
+			{% if data.banner %}
+				<div class="banner-background">
+					<img src="{{ file_url(data.banner) }}" alt="{{ 'Banner'|t }}" class="w-100 h-100 object-fit-cover">
+				</div>
+			{% endif %}
 
+			<!-- Overlay for better text readability -->
+			<div class="banner-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+			{% if data.text %}
+			<!-- Banner Content -->
+			<div class="banner-content position-relative z-3">
+				<div class="container">
+					<div class="row justify-content-center align-items-center min-vh-75">
+						<div class="col-lg-8 col-md-10 text-center text-white">
+								<h1 class="display-4 fw-bold mb-4">{{ 'Blogs'|t }}</h1>
+								<p class="lead mb-0">{{ data.text|slice(0, 200) }}
+									{% if data.text|length > 200 %}...
+									{% endif %}
+								</p>
+						</div>
+					</div>
+				</div>
+			</div>
+      {% endif %}
+		</section>
+		
 		<div class="separator"></div>
 		{#  <h2 class="view-title"> {{ 'Our Blog'|t }} </h2> #}
 
 		<div class='news-items view-content container'>
 
 			<div class="views-view-grid horizontal cols-3 clearfix">
-				<div class="items">
+				<div
+					class="items">
 
 					<!-- News -->
-					{% for item in data.items %}	
+					{% for item in data.items %}
 
 						{% set link = url('entity.node.canonical', {'node': item.id}) %}
 
 						<div class="box">
 							<div class="views-field views-field-field-image">
-								<div class="field-content"> 
+								<div class="field-content">
 									<a href="{{ link }}">
 										<img src={{ file_url(item.get('field_image').entity.uri.value) }} loading="lazy" width="800" height="350" alt="image" class="image-field">
 									</a>
@@ -38,11 +63,13 @@
 							</div>
 							<div>
 								<div>
-									<p> {{ item.get('field_summary').value }} </p>
+									<p>
+										{{ item.get('field_summary').value }}
+									</p>
 								</div>
 							</div>
 						</div>
-					
+
 					{% endfor %}
 
 				</div>
@@ -51,5 +78,5 @@
 		</div>
 
 	</div>
-  
-{% endif %}	
+
+{% endif %}

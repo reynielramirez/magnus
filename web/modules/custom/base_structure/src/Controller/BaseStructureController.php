@@ -269,7 +269,7 @@ class BaseStructureController extends ControllerBase {
 		$service = Drupal::getContainer()->get('base_structure_service');
 
         $data["banner"] = $service->getConfigURL("contact_banner");
-		$data["text"] = $service->getConfigText("contact_us_text");
+		$data["text"] = $service->getConfigText("contact_text");
 
 		//$block = Block::load('feedback-form'); //Block Name in Block Design
 		
