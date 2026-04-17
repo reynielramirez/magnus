@@ -2,6 +2,8 @@
 
 {% if data %}
 
+{% set has_colaboradores = data.colaboradores is not empty %}
+
 	<div id='about-view' data-aos="fade-right">
 	
 		{% if data.banner %}
@@ -72,7 +74,34 @@
 					</div>	
 				</div>
 
-			</div>		
+			</div>
+			
+			{% if has_colaboradores %}
+			<h2 class="view-title values-title"> {{ 'Conoce al equipo (Colaboradores)'|t }} </h2>
+
+			<div class='about-items-colaboradores view-content container'>
+
+				<div class="about-view-colaboradores-grid horizontal clearfix">
+					<div class="items">
+				
+						<!-- Values -->
+						{% for item in data.colaboradores %}	
+
+							<div class="item">
+								<div class="about-colaborador-image">
+									<img class="" src={{ file_url(item.get('field_image').entity.uri.value) }}>
+								</div>
+								<h3> {{ item.get('title').value }} </h3>
+								<p class="summary"> {{ item.get('field_cargo').value }} </p>			
+							</div>
+
+						{% endfor %}
+
+					</div>	
+				</div>
+
+			</div>
+			{% endif %}
 
 		</div>
 		

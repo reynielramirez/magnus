@@ -19,7 +19,15 @@ class BannerBlock extends BlockBase {
 		
 		$data = array();
         $language = Drupal::languageManager()->getCurrentLanguage()->getId();
-        
+
+		// Obtener el eslogan y nombre del sitio desde la configuración del sitio
+		$site_config = Drupal::config('system.site');
+		$slogan = $site_config->get('slogan');
+		$site_name = $site_config->get('name');
+
+		$service = Drupal::getContainer()->get('base_structure_service');
+		$site_logo = $service->getConfigURL("site_logo");
+    
 		$node_ids = Drupal::entityQuery('node')
             ->condition('type','banner')
             ->condition('langcode',$language)
@@ -39,6 +47,9 @@ class BannerBlock extends BlockBase {
 		return [
 			'#theme' => 'banner_block',
 			'#data' => $data,
+			'#slogan' => $slogan,
+			'#site_name' => $site_name,
+			'#site_logo' => $site_logo,
 			'#titulo' => $this->t('Banner Block'),
 			'#attached' => $library,
 			'#cache' => [

@@ -4,18 +4,22 @@
 
 	<div id='links-block'>
 	
-      	<h2 class="block-title">{{ 'Sites of interest'|t }}</h2>
+      	<h2 class="block-title">{{ 'Sites of interest'|t }}{{' que'}}</h2>
     
 		<div class="block-content">
 			<div class="field field--name-body field--type-text-with-summary field--label-hidden field-item">
 				<ul>
 
 					<!-- Links -->
-					{% for item in data %}
+					{% for link in data %}
 				
 						<li class='link'>
-							<a href='{{ item.get("field_link").uri }}'> 
-								{{ item.get('title').value }} 
+							<a href='{{ link.get("field_link").uri }}' target="_blank"> 
+								{% if link.get('field_image').entity %}
+									<img src="{{ file_url(link.get('field_image').entity.uri.value) }}" alt="{{ link.get('title').value }}">
+								{% else %}
+									{{ link.get('title').value }}
+								{% endif %}
 							</a>
 						</li>
 
