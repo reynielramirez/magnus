@@ -277,4 +277,22 @@ class BaseStructureService {
         $this->config->save();
     }
 
+        public function addFormattedTextarea(&$form, $group, $id, $title) {
+        $default_value = $this->config->get($id);
+        if (!is_array($default_value)) {
+            $default_value = [
+                'value' => $default_value,
+                'format' => 'basic_html', // Cambia esto si tu formato por defecto es otro
+            ];
+        }
+        $form[$group][$id] = [
+            '#type' => 'text_format',
+            '#title' => t($title),
+            '#format' => $default_value['format'],
+            '#default_value' => $default_value['value'],
+            '#rows' => 8,
+            '#description' => t('Puedes usar formato HTML básico.'),
+        ];
+    }
+
 }

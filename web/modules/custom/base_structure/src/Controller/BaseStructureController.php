@@ -81,6 +81,20 @@ class BaseStructureController extends ControllerBase {
             }
         }
 
+		$node_ids = Drupal::entityQuery('node')
+            ->condition('type','colaboradores')
+            ->condition('langcode',$language)
+            ->condition('status', 1)
+            ->accessCheck(FALSE)
+            ->execute();
+
+		if(!empty($node_ids)){
+            $nodes = Node::loadMultiple($node_ids);
+            foreach ($nodes as $node){
+                $data['colaboradores'][] = $node->getTranslation($language);
+            }
+        }
+
 		$library['library'][] = 'base_structure/about-styling';
 
 		return [

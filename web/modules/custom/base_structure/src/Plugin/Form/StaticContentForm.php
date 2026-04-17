@@ -34,9 +34,9 @@ class StaticContentForm extends FormBase
 
         // General --------------------------------------------------
 
-        $this->service->addGroup($form, 'general', 'General');
-        $this->service->addImage($form, 'general', 'site_logo', 'Site logo');
-        $this->service->addRichTextarea($form, 'general', 'methodology', 'Methodology');
+        $this->service->addGroup($form,'general','General');
+        $this->service->addImage($form,'general','site_logo','Site logo');
+        $this->service->addRichTextarea($form,'general','methodology','Methodology');
 
         // Social networks ---------------------------------------------
 
@@ -116,6 +116,9 @@ class StaticContentForm extends FormBase
 
         $this->service->saveImage('site_logo', $data);
         $this->service->saveText('methodology', $data);
+        $this->service->saveImage('site_image_section', $data);
+        $this->service->saveText('site_title_section', $data);
+        $this->service->saveText('site_text_section', $data);
 
         // Social networks ---------------------------------------------
 

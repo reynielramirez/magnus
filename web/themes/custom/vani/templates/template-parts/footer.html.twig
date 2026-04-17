@@ -25,19 +25,28 @@
 	
   {% endif %} {# end if for footer one, two blocks #}
 
-  {% if page.footer_third or page.footer_fourth %}
+  {% if page.footer_third %}
   
-    <div class="footer-container">
+    <div class="footer-container-full">
   
-		<section class="clear footer-section">
+		<section class="clear footer-section-full">
 		 
 			  {% if page.footer_third %}
 				{{ page.footer_third }}
 			  {% endif %}
 		  
 		</section> <!--/footer-blocks -->
-		
-		<section class="clear footer-section">
+				
+	</div>
+	
+  {% endif %} {# end if for footer three #}
+
+
+  {% if page.footer_fourth %}
+  
+    <div class="footer-container-full">
+  
+		<section class="clear footer-section-full">
 		
 			  {% if page.footer_fourth %}
 				{{ page.footer_fourth }}
@@ -47,7 +56,7 @@
 	
 	</div>
 	
-  {% endif %} {# end if for footer three, four blocks #}
+  {% endif %} {# end if for four blocks #}
   
    <section id="footer-bottom-last" class="clear">
 	 <div class="container clear">

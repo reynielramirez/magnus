@@ -3034,6 +3034,10 @@ footer .footer-section {
 	width: 50%;
 }
 
+footer .footer-section-full {
+	width: 100%;
+}
+
 .region-footer-second,
 .region-footer-third,
 .region-footer-fourth {
