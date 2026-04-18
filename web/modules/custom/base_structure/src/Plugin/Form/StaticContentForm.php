@@ -94,6 +94,8 @@ class StaticContentForm extends FormBase
         $this->service->addAddress($form, 'contact_us', 'address', 'Address');
         $this->service->addPhone($form, 'contact_us', 'phone', 'Phone');
         $this->service->addEmail($form, 'contact_us', 'email', 'Email');
+        $this->service->addImage($form,'contact_us','reference_one_img','Image reference 1');
+        $this->service->addImage($form,'contact_us','reference_two_img','Image reference 2');
 
         $form['save'] = [
             '#type' => 'submit',
@@ -170,6 +172,8 @@ class StaticContentForm extends FormBase
         $this->service->saveText('address', $data);
         $this->service->saveText('phone', $data);
         $this->service->saveText('email', $data);
+        $this->service->saveImage('reference_one_img', $data);
+        $this->service->saveImage('reference_two_img', $data);
 
         $this->service->saveConfig();
     }
