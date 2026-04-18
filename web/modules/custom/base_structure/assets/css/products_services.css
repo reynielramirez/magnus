@@ -79,13 +79,6 @@
     margin: unset;
 }
 
-#products-block .product a:hover,
-#services-block .service a:hover{
-    background: var(--theme-color-one);
-    color: white;
-    border-radius: 5px;
-    padding: 6px;
-}
 
 #products-block .owl-nav, 
 #services-block .owl-nav{
@@ -166,6 +159,3 @@
 #services-view .service h3 {
     padding-left: 20px;
 }
-
-
-

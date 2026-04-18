@@ -13,10 +13,10 @@
 			{% endif %}
 
 			<!-- Overlay for better text readability -->
-			<div class="banner-overlay position-absolute top-0 start-0 w-100 h-100"></div>
-			{% if data.text %}
+			<!-- <div class="banner-overlay position-absolute top-0 start-0 w-100 h-100"></div> -->
+			<!-- {% if data.text %} -->
 			<!-- Banner Content -->
-			<div class="banner-content position-relative z-3">
+			<!-- <div class="banner-content position-relative z-3">
 				<div class="container">
 					<div class="row justify-content-center align-items-center min-vh-75">
 						<div class="col-lg-8 col-md-10 text-center text-white">
@@ -29,7 +29,12 @@
 					</div>
 				</div>
 			</div>
-      {% endif %}
+      {% endif %} -->
+	  {% if data.text %}
+			<div class="pi-text">
+				<p>{{ data.text|slice(0, 200) }}</p>
+			</div>
+			{% endif %}
 		</section>
 		
 		<div class="separator"></div>

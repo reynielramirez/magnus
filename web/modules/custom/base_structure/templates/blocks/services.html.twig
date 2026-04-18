@@ -20,9 +20,15 @@
 								</div>
 								<h3> {{ item.get('title').value }} </h3>
 								<p class="summary"> {{ item.get('field_summary').value }} </p>
-								<a class="button" href="{{ url('entity.node.canonical', {'node': item.id}) }}"> 
+								<!-- <a class="button" href="{{ url('entity.node.canonical', {'node': item.id}) }}"> 
 									{{ 'Read more'|t }} 
-								</a>
+								</a> -->
+								<p>
+									<a class="view-details-btn" href="{{ url('entity.node.canonical', {'node': item.id}) }}">
+										{{ 'Read more'|t }}
+										<i class="fas fa-arrow-right"></i>
+									</a>
+								</p>
 							</div>
 
 						{% endfor %}

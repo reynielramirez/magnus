@@ -1,0 +1,175 @@
+/* Contenedor principal */
+.newsletter-section {
+  width: 100%;
+}
+
+.newsletter-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.newsletter-content {
+  text-align: center;
+}
+
+/* Títulos y texto */
+.newsletter-title {
+  /* color: #ffffff; */
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.newsletter-text {
+  /* color: #94a3b8; */
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* Grupo del formulario */
+.form-group {
+  max-width: 500px;
+  margin: 0 auto 1rem;
+}
+
+/* Estilos para los campos de email */
+.form-group input[type="email"],
+.form-group .form-email,
+.form-group .form-text {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: auto;
+  min-width: 0;
+}
+
+.form-group input[type="email"]:focus,
+.form-group .form-email:focus,
+.form-group .form-text:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 0 3px rgba(88, 180, 237, 0.2);
+}
+
+.form-group input[type="email"]::placeholder,
+.form-group .form-email::placeholder,
+.form-group .form-text::placeholder {
+  color: #64748b;
+}
+
+/* Estilos para el botón de envío */
+.form-group button,
+.form-group .form-submit,
+.form-group input[type="submit"] {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.form-group button:hover,
+.form-group .form-submit:hover,
+.form-group input[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(88, 180, 237, 0.4);
+}
+
+.form-group button:active,
+.form-group .form-submit:active,
+.form-group input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Nota de privacidad */
+.form-note small {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+/* Mensajes de error/éxito de Drupal */
+.form-group .form-item--error-message,
+.form-group .messages {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.form-group .messages--error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-left: 3px solid #ef4444;
+}
+
+.form-group .messages--status {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border-left: 3px solid #22c55e;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .newsletter-section {
+    padding: 2rem 0;
+  }
+  
+  .newsletter-title {
+    font-size: 1.5rem;
+  }
+  
+  .newsletter-text {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* En móvil, el formulario se apila verticalmente */
+  .form-group form {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .form-group input[type="email"],
+  .form-group .form-email,
+  .form-group .form-text {
+    width: 100%;
+    padding: 12px 16px;
+  }
+  
+  .form-group button,
+  .form-group .form-submit,
+  .form-group input[type="submit"] {
+    width: 100%;
+    padding: 12px 24px;
+  }
+}
+
+/* Ajustes adicionales para formularios Drupal */
+.form-group .form-actions {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 640px) {
+  .form-group .form-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* Etiquetas del formulario (si las hay) */
+.form-group label {
+  display: none;
+}
+
+/* Captcha y otros elementos adicionales */
+.form-group .description,
+.form-group .captcha {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #64748b;
+  text-align: center;
+}

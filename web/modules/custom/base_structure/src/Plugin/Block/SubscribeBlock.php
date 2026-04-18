@@ -61,11 +61,13 @@ class SubscribeBlock extends BlockBase implements ContainerFactoryPluginInterfac
 
 		$data["form"] = $this->formBuilder->getForm('\Drupal\base_structure\Plugin\Form\SubscribeForm');
 
+        $library['library'][] = 'base_structure/subscribe-styling';
+
 		return [
             '#theme' => 'subscribe_block',
             '#titulo' => $this->t('Subscribe Block'),
             '#data' => $data,
-			'#attached' => null,
+			'#attached' => $library,
             '#cache' => [
                 'max-age' => 0,
             ],

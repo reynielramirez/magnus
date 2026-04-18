@@ -2,16 +2,18 @@
 
 {% if data %}
 
-	<div id="subscribe-block">
-
-        <h2 class="block-title">{{ 'Subscribe'|t }}</h2>
-
-        <div class='subscribe-form-content'>
-            {{ data.form }}
-        </div>
-
-
+<div class="newsletter-section">
+  <div class="newsletter-container">
+    <div class="newsletter-content">
+      <h3 class="newsletter-title">{{ 'Suscríbete a nuestro newsletter'|t }}</h3>
+      <p class="newsletter-text">{{ 'Recibe las últimas novedades y ofertas especiales'|t }}</p>
+      
+      <div class="form-group">
+        {{ data.form }}
+      </div>
     </div>
+  </div>
+</div>
             
 {% endif %}	
 

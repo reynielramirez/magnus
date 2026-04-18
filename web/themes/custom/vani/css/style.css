@@ -2738,6 +2738,27 @@ a.button-link:hover {
     padding: 0.9em 0 !important;
 }
 
+.pi-text {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+}
+
+.pi-text p {
+  color: white;
+  font-size: 26px !important;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
 /* Animation
 -------------------------------------------- */
 /*slide up */
@@ -2978,7 +2999,7 @@ footer .footer-container {
 }
 
 .region-footer-first {
-	background: var(--theme-color-four);
+	background: var(--theme-color-three);;
 }
 
 .region-footer-second {

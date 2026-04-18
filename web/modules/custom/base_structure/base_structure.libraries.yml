@@ -121,6 +121,18 @@ error-styling:
     theme:
       assets/css/error.css: {}
 
+site-section-styling:
+  version: VERSION
+  css:
+    theme:
+      assets/css/site_section.css: {}
+
+subscribe-styling:
+  version: VERSION
+  css:
+    theme:
+      assets/css/subscribe.css: {}
+
 # Library: jquery
 # -----------------------------------------------------------
 
