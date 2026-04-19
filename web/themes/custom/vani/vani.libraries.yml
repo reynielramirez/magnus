@@ -72,3 +72,29 @@ fontawesome-library:
   css:
     theme:
       /libraries/fontawesome-free-6.5.2-web/css/all.min.css: {}
+
+gallery-modal:
+  version: VERSION
+  css:
+    theme:
+      css/gallery-modal.css: {}
+  js:
+    js/gallery-modal.js: {}
+
+product:
+  version: VERSION
+  css:
+    theme:
+      css/product.css: {}  
+
+service:
+  version: VERSION
+  css:
+    theme:
+      css/service.css: {} 
+
+product-service:
+  version: VERSION
+  css:
+    theme:
+      css/product-service.css: {}  
