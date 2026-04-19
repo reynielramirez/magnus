@@ -87,4 +87,9 @@ product:
     theme:
       css/product.css: {}  
 
+service:
+  version: VERSION
+  css:
+    theme:
+      css/service.css: {}  
 

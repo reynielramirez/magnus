@@ -1,0 +1,40 @@
+.service-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Versión más limpia sin necesidad de grid completo */
+.service-detail-section {
+    padding: 3rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.service-gallery,
+.service-info-wrapper {
+    flex: 1;
+    min-width: 250px;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    
+    .service-gallery,
+    .service-info-wrapper {
+        flex: auto;
+    }
+}
+
+/* Resto de estilos igual que arriba */

@@ -55,6 +55,12 @@
 							</div>
 							<h3> {{ item.get('title').value }} </h3>
 							<p class="summary"> {{ item.get('field_description').value | raw }} </p>
+							<p>
+								<a class="view-details-btn" href="{{ url('entity.node.canonical', {'node': item.id}) }}">
+									{{ 'Read more'|t }}
+									<i class="fas fa-arrow-right"></i>
+								</a>
+							</p>
 						</div>
 
 					{% endfor %}
