@@ -91,5 +91,10 @@ service:
   version: VERSION
   css:
     theme:
-      css/service.css: {}  
+      css/service.css: {} 
 
+product-service:
+  version: VERSION
+  css:
+    theme:
+      css/product-service.css: {}  
