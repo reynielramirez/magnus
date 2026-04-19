@@ -30,7 +30,11 @@ about-styling:
   version: VERSION
   css:
     theme:
-      assets/css/about.css: {}  
+      assets/css/about.css: {}
+  js:
+    assets/js/colaboradores.js: {}
+  dependencies:
+    - base_structure/owl-carousel-library
 
 testimonials-styling:
   version: VERSION

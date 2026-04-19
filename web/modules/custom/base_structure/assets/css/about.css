@@ -53,3 +53,14 @@
 #about-view .values-title {
     margin-top: 35px
 }
+
+.carrusel-colaborador-img {
+  width: 200px !important;        /* o el tamaño que necesites */
+  height: 200px !important;
+  object-fit: cover;
+  border-radius: 50%;  /* si quieres círculo */
+}
+
+.owl-theme .owl-nav {
+  display: none;
+}
