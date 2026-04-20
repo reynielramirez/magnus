@@ -284,6 +284,22 @@ class BaseStructureController extends ControllerBase {
 
         $data["banner"] = $service->getConfigURL("contact_banner");
 		$data["text"] = $service->getConfigText("contact_text");
+		$data["reference_one"] = $service->getConfigURL("reference_one_img");
+		$data["reference_two"] = $service->getConfigURL("reference_two_img");
+		$data["logo"] = $service->getConfigURL("logo");
+		$data["address"] = $service->getConfigText("address");
+		$data["phone"] = $service->getConfigText("phone");
+		$data["email"] = $service->getConfigText("email");
+
+		    // Socials
+    	$data["facebook"] = $service->getConfigText("facebook");
+		$data["twitter"] = $service->getConfigText("twitter");
+		$data["instagram"] = $service->getConfigText("instagram");
+		$data["linkedin"] = $service->getConfigText("linkedin");
+		$data["youtube"] = $service->getConfigText("youtube");
+		$data["vimeo"] = $service->getConfigText("vimeo");
+		$data["telegram"] = $service->getConfigText("telegram");
+		$data["whatsapp"] = $service->getConfigText("whatsapp");
 
 		//$block = Block::load('feedback-form'); //Block Name in Block Design
 		
