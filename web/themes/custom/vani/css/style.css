@@ -936,6 +936,10 @@ td {
 /* Sidebar
 --------------------------------*/
 /* Common for both sidebar */
+#block-vani-bloqueparaelcarrusel {
+  background-color: #dde8f4;
+}
+
 .sidebar {
   position: relative;
   width: 100%;
