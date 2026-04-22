@@ -25,6 +25,11 @@
     color: black;
 }
 
+#contacts-block .contact-items a{
+    color: white;
+    text-decoration: none;
+}
+
 #contacts-block .contact-items,
 #contact-view .contact-items {
     color: white;

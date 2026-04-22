@@ -8,8 +8,8 @@
         <div class="contact-items">
             <img src="{{ file_url(data.logo) }}" alt="{{ 'Contact'|t }}">
             <h4 class="contact-address"> {{ data.address }} </h4>
-            <h4 class="contact-phone"> {{ 'Phone:'|t }} {{ data.phone }} </h4>
-            <h4 class="contact-email"> {{ 'Email:'|t }} {{ data.email }} </h4>
+            <h4 class="contact-phone"> {{ 'Phone:'|t }} <a href="tel:{{data.phone}}">{{data.phone}} </h4>
+            <h4 class="contact-email"> {{ 'Email:'|t }} <a href="mailto:{{data.email}}">{{data.email}}</a></h4>
 
             <ul class="social-icons">
 
