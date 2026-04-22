@@ -1,5 +1,7 @@
 <!-- Block: Contact -->
 {% if data.address or data.phone or data.email %}
+{% set direccion = data.address %}
+{% set direccion_to_map = direccion|url_encode %}
 
     <div id="contacts-block">
 
@@ -7,7 +9,9 @@
 
         <div class="contact-items">
             <img src="{{ file_url(data.logo) }}" alt="{{ 'Contact'|t }}">
-            <h4 class="contact-address"> {{ data.address }} </h4>
+            <h4 class="contact-address">
+                <a href="https://www.google.com/maps?q={{ direccion_to_map }}" 
+                    target="_blank">{{ data.address }}</a> </h4>
             <h4 class="contact-phone"> {{ 'Phone:'|t }} {{ data.phone }} </h4>
             <h4 class="contact-email"> {{ 'Email:'|t }} {{ data.email }} </h4>
 
