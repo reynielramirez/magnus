@@ -17,29 +17,18 @@
         <div class="service-info">
           <h2 class="view-title values-title">{{ node.get('title').value }}</h2>
 
-          <p class="service-description">
+          <!-- <p class="service-description">
             {{ node.get('field_summary').value }}
-          </p>
+          </p> -->
 
           <!-- Descripción extendida -->
-          {% if page.field_rich_description is defined and page.field_rich_description is not empty %}
-            {% if node.get('field_rich_description').value %}
-              <div class="details-section">
-                <h4 class="view-title values-title">{{ 'Detalles completos'|t }}</h4>
-                <div class="service-full-description">
-                  {{ node.get('field_rich_description').value|raw }}
-                </div>
+          {% if node.get('field_rich_description').value %}
+            <div class="details-section">
+              <!-- <h4 class="view-title values-title">{{ 'Detalles completos'|t }}</h4> -->
+              <div class="service-full-description">
+                {{ node.get('field_rich_description').value|raw }}
               </div>
-            {% endif %}
-          {% else %}
-            {% if node.get('field_description').value %}
-              <div class="details-section">
-                <h4 class="view-title values-title">{{ 'Detalles completos'|t }}</h4>
-                <div class="service-full-description">
-                  {{ node.get('field_description').value|raw }}
-                </div>
-              </div>
-            {% endif %}
+            </div>
           {% endif %}
 
         </div>
