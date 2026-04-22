@@ -17,14 +17,14 @@
         <div class="product-info">
           <h2 class="view-title values-title">{{ node.get('title').value }}</h2>
 
-          <p class="product-description">
+          <!-- <p class="product-description">
             {{ node.get('field_summary').value }}
-          </p>
+          </p> -->
 
           <!-- Descripción extendida -->
           {% if node.get('field_rich_description').value %}
           <div class="details-section">
-            <h4 class="view-title values-title">{{ 'Detalles completos'|t }}</h4>
+            <!-- <h4 class="view-title values-title">{{ 'Detalles completos'|t }}</h4> -->
             <div class="product-full-description">
               {{ node.get('field_rich_description').value|raw }}
             </div>
