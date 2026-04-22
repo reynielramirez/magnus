@@ -252,47 +252,6 @@ iframe{
     font-size: 0.9rem;
 }
 
-.contact-btn-submit {
-    background: linear-gradient(135deg, var(--theme-color-two), var(--theme-color-three));
-    color: white;
-    border: none;
-    padding: 0.9rem;
-    border-radius: 60px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.contact-btn-submit:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.05);
-    box-shadow: 0 8px 16px rgba(3, 132, 189, 0.3);
-}
-
-.contact-form-feedback {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-/* --- Formulario oscuro (el que ya tenías al final) --- */
-.contact-dark-form {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: var(--theme-color-five);
-    border-radius: 24px;
-    color: white;
-}
-
-.contact-dark-form form * {
-    color: white;
-}
 
 .contact-address a {
     color: #fff;
@@ -311,7 +270,7 @@ iframe{
 
 .seccion-dividida {
   
-  max-width: 1400px;
+  /* max-width: 1400px; */
   
   background-color: #58b4ed;
   margin-bottom: -65px;

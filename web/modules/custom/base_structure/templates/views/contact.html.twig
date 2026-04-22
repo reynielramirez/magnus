@@ -10,115 +10,92 @@
 				</div>
 			{% endif %}
 
-			<!-- Overlay for better text readability -->
-			<!-- <div class="banner-overlay position-absolute top-0 start-0 w-100 h-100"></div> -->
-			<!-- {% if data.text %} -->
-			<!-- Banner Content -->
-			<!-- <div class="banner-content position-relative z-3">
-				<div class="container">
-					<div class="row justify-content-center align-items-center min-vh-75">
-						<div class="col-lg-8 col-md-10 text-center text-white">
-								<h1 class="display-4 fw-bold mb-4">{{ 'Contact Us'|t }}</h1>
-								<p class="lead mb-0">{{ data.text|slice(0, 200) }}
-									{% if data.text|length > 200 %}...
-									{% endif %}
-								</p>
-						</div>
-					</div>
-				</div>
-			</div>
-      {% endif %} -->
-	  {% if data.text %}
-			<div class="pi-text">
-				<p>{{ data.text|slice(0, 200) }}</p>
-			</div>
-			{% endif %}
+            {% if data.text %}
+                <div class="pi-text">
+                    <p>{{ data.text|slice(0, 200) }}</p>
+                </div>
+            {% endif %}
 		</section>
 
 		<div class="separator"></div>
 		{# <h2 class="view-title"> {{ 'Contact Us'|t }} </h2>  #}
 
-<section class="contact-section">
-    <div class="contact-section-header">
-        <h2 class="view-title values-title">Conecta con nosotros</h2>
-        <p>Estamos aquí para ayudarte. Visítanos, escríbenos o envíanos un mensaje directo.</p>
-    </div>
-
-{# <section class="contact-section">
-    <div class="section-header">
-        <h2>¿Hablamos?</h2>
-        <p>Conoce nuestras instalaciones, encuentra nuestra ubicación y envíanos un mensaje directo.</p>
-    </div> #}
-    <div class='dark-form'>
-        {{ data.form }}
-    </div>
-</section>
-<section class="seccion-dividida" style="display:none;">
-    <div class="div-dividida">
-            <div class="columna-mapa">
-            <div class="mapa-contenedor">
-                {% if data.address %}
-                    <iframe 
-                        title="Mapa empresa"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.202981885479!2d-99.19018608463063!3d19.436448986886808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff327f229bdb%3A0x2dd867476faa16a7!2s{{ data.address | url_encode }}!5e0!3m2!1sen!2s!4v1745184963288!5m2!1sen!2s"
-                        width="100%" 
-                        height="600px" 
-                        style="border:0;border-radius: 20px;"
-                          
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>                       
-                {% endif %}
+        <section class="contact-section">
+            <div class="contact-section-header">
+                <h2 class="view-title values-title">Conecta con nosotros</h2>
+                <p>Estamos aquí para ayudarte. Visítanos, escríbenos o envíanos un mensaje directo.</p>
             </div>
-        </div>
-        <div class="columna-imagenes">
-            <div class="galeria-referencias">
-                {% if data.reference_one %}
-                    <div class="contact-photo-card">
-                        <img src="{{ file_url(data.reference_one) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
-                    </div>
-                {% endif %}
-                {% if data.reference_two %}
-                    <div class="contact-photo-card">
-                        <img src="{{ file_url(data.reference_two) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
-                    </div>
-                {% endif %}
-
+            <div class='dark-form'>
+                {{ data.form }}
             </div>
-        </div>
-    </div>
-</section> 
+        </section>
+        <section class="seccion-dividida" style="display:none;">
+            <div class="div-dividida">
+                    <div class="columna-mapa">
+                    <div class="mapa-contenedor">
+                        {% if data.address %}
+                            <iframe 
+                                title="Mapa empresa"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.202981885479!2d-99.19018608463063!3d19.436448986886808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff327f229bdb%3A0x2dd867476faa16a7!2s{{ data.address | url_encode }}!5e0!3m2!1sen!2s!4v1745184963288!5m2!1sen!2s"
+                                width="100%" 
+                                height="600px" 
+                                style="border:0;border-radius: 20px;"
+                                
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>                       
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="columna-imagenes">
+                    <div class="galeria-referencias">
+                        {% if data.reference_one %}
+                            <div class="contact-photo-card">
+                                <img src="{{ file_url(data.reference_one) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
+                            </div>
+                        {% endif %}
+                        {% if data.reference_two %}
+                            <div class="contact-photo-card">
+                                <img src="{{ file_url(data.reference_two) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
+                            </div>
+                        {% endif %}
 
-<section>
-    <div class="contact-two-columns contact-block-form">
-        <div class="contact-column-left contact-left">
-            {% if data.address %}
-                <iframe 
-                    title="Mapa empresa"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.202981885479!2d-99.19018608463063!3d19.436448986886808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff327f229bdb%3A0x2dd867476faa16a7!2s{{ data.address | url_encode }}!5e0!3m2!1sen!2s!4v1745184963288!5m2!1sen!2s"
-                    width="100%" 
-                    height="600px" 
-                    style="border:0;"  
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>                       
-            {% endif %}
-        </div>
-        <div class="contact-column-right ">
-            <div class="galeria-referencias">
-                {% if data.reference_one %}
-                    <div class="contact-photo-card">
-                        <img src="{{ file_url(data.reference_one) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
                     </div>
-                {% endif %}
-                {% if data.reference_two %}
-                    <div class="contact-photo-card">
-                        <img src="{{ file_url(data.reference_two) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
-                    </div>
-                {% endif %}
+                </div>
             </div>
-        </div>
+        </section> 
+
+        <section>
+            <div class="contact-two-columns contact-block-form">
+                <div class="contact-column-left contact-left">
+                    {% if data.address %}
+                        <iframe 
+                            title="Mapa empresa"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.202981885479!2d-99.19018608463063!3d19.436448986886808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff327f229bdb%3A0x2dd867476faa16a7!2s{{ data.address | url_encode }}!5e0!3m2!1sen!2s!4v1745184963288!5m2!1sen!2s"
+                            width="100%" 
+                            height="600px" 
+                            style="border:0;"  
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>                       
+                    {% endif %}
+                </div>
+                <div class="contact-column-right ">
+                    <div class="galeria-referencias">
+                        {% if data.reference_one %}
+                            <div class="contact-photo-card">
+                                <img src="{{ file_url(data.reference_one) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
+                            </div>
+                        {% endif %}
+                        {% if data.reference_two %}
+                            <div class="contact-photo-card">
+                                <img src="{{ file_url(data.reference_two) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</section>
 {% endif %}	
 
