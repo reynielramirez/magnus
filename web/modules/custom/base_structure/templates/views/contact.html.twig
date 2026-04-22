@@ -49,193 +49,76 @@
         <h2>¿Hablamos?</h2>
         <p>Conoce nuestras instalaciones, encuentra nuestra ubicación y envíanos un mensaje directo.</p>
     </div> #}
-
-    <div class="contact-blocks-container">        
-        <!-- ========== BLOQUE 1: DOS FOTOS DE REFERENCIA ========== -->
-
-        <div class="contact-block">
-            <div class="contact-block-title">
-                <i class="fas fa-images"></i>
-                <span>Galería de referencia</span>
-            </div>
-            <div class="contact-block-content">
-                <div class="contact-two-columns">
-                    <div class="contact-column-left">
-                        {% if data.reference_one %}
-                            <div class="contact-photo-card">
-                                <img src="{{ file_url(data.reference_one) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
-                                {# <div class="photo-caption">
-                                    <h4><i class="fas fa-building"></i> Espacios de trabajo</h4>
-                                    <p>Ambientes colaborativos y tecnología de punta.</p>
-                                </div> #}
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="contact-column-right">
-                        {% if data.reference_two %}
-                            <div class="contact-photo-card">
-                                <img src="{{ file_url(data.reference_two) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
-                                {# <div class="photo-caption">
-                                    <h4><i class="fas fa-users"></i> Nuestro equipo</h4>
-                                    <p>Personas apasionadas por la innovación.</p>
-                                </div> #}
-                            </div>  
-                        {% endif %}
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- ========== BLOQUE 2: MAPA + DATOS DE CONTACTO DE LA EMPRESA ========== -->
-        <div class="contact-block">
-            <div class="contact-block-title">
-                <i class="fas fa-map-marked-alt"></i>
-                <span>Ubicación y datos de contacto</span>
-            </div>
-            <div class="contact-block-content">
-                <div class="contact-map-contact-wrapper">
-                    <div class="contact-two-columns">
-                        <div class="contact-column-left">
-                            <!-- Mapa de la empresa (iframe responsivo) -->
-                            <div class="contact-map-container">
-                                {% if data.addressMap %}
-                                    <iframe 
-                                        title="Mapa empresa"
-                                        src="{{ data.addressMap }}" 
-                                        allowfullscreen="" 
-                                        loading="lazy">
-                                    </iframe> 
-                                {% else %}
-                                    <iframe 
-                                        title="Mapa empresa"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.202981885479!2d-99.19018608463063!3d19.436448986886808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff327f229bdb%3A0x2dd867476faa16a7!2sAv.%20Ej%C3%A9rcito%20Nacional%20373%2C%20Granada%2C%2011520%20Miguel%20Hidalgo%2C%20CDMX%2C%20Mexico!5e0!3m2!1sen!2s!4v1745184963288!5m2!1sen!2s" 
-                                        allowfullscreen="" 
-                                        loading="lazy">
-                                    </iframe>                       
-                                {% endif %}
-
-                            </div>
-                        </div>
-                        <div class="contact-column-right">
-                            <!-- Datos de contacto de la empresa -->
-                            <div class="contact-details-list">
-                                {% if data.logo %}
-                                    <div class="contact-detail-item">
-                                        <img src="{{ file_url(data.logo) }}" alt="{{ 'Logo'|t }}" loading="lazy">
-                                    </div>
-                                {% endif %}
-                                
-                                {% if data.address %}
-                                    <div class="contact-detail-item">
-                                        <i class="fas fa-location-dot"></i>
-                                        <div><strong>Dirección</strong><span>{{ data.address }}</span></div>
-                                    </div>						
-                                {% endif %}
-                                {% if data.phone %}
-                                    <div class="contact-detail-item">
-                                        <i class="fas fa-phone"></i>
-                                        <div><strong>Teléfono</strong><a href="tel:{{data.phone}}">{{data.phone}}</a></div>
-                                    </div>
-                                {% endif %}
-                                {% if data.email %}
-                                    <div class="contact-detail-item">
-                                        <i class="fas fa-envelope"></i>
-                                        <div><strong>Email:</strong><a href="mailto:{{data.email}}">{{data.email}}</a></div>
-                                    </div>
-                                {% endif %}
-                                <div class="contact-social">
-                                    {% if data.facebook %}
-                                    <a href="{{ data.facebook }}" target="_blank" class="text-white"><i class="fab fa-facebook-f fs-2x"></i></a>
-                                    {% endif %}
-
-                                    {% if data.twitter %}
-                                    <a href="{{ data.twitter }}" target="_blank" class="text-white"><i class="fab fa-x-twitter fs-2x"></i></a>
-                                    {% endif %}
-
-                                    {% if data.instagram %}
-                                    <a href="{{ data.instagram }}" target="_blank" class="text-white"><i class="fab fa-instagram fs-2x"></i></a>
-                                    {% endif %}
-
-                                    {% if data.linkedin %}
-                                    <a href="{{ data.linkedin }}" target="_blank" class="text-white"><i class="fab fa-linkedin fs-2x"></i></a>
-                                    {% endif %}
-
-                                    {% if data.youtube %}
-                                    <a href="{{ data.youtube }}" target="_blank" class="text-white"><i class="fab fa-youtube fs-2x"></i></a>
-                                    {% endif %}
-
-                                    {% if data.vimeo %}
-                                    <a href="{{ data.vimeo }}" target="_blank" class="text-white"><i class="fab fa-vimeo-v fs-2x"></i></a>
-                                    {% endif %}
-
-                                    {% if data.telegram %}
-                                    <a href="{{ data.telegram }}" target="_blank" class="text-white"><i class="fab fa-telegram fs-2x"></i></a>
-                                    {% endif %}
-
-                                    {% if data.whatsapp %}
-                                    <a href="{{ data.whatsapp }}" target="_blank" class="text-white"><i class="fab fa-whatsapp fs-2x"></i></a>
-                                    {% endif %}
-                                </div>				
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-            </div>
-        </div>
-
+    <div class='dark-form'>
+        {{ data.form }}
     </div>
 </section>
+<section class="seccion-dividida" style="display:none;">
+    <div class="div-dividida">
+            <div class="columna-mapa">
+            <div class="mapa-contenedor">
+                {% if data.address %}
+                    <iframe 
+                        title="Mapa empresa"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.202981885479!2d-99.19018608463063!3d19.436448986886808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff327f229bdb%3A0x2dd867476faa16a7!2s{{ data.address | url_encode }}!5e0!3m2!1sen!2s!4v1745184963288!5m2!1sen!2s"
+                        width="100%" 
+                        height="600px" 
+                        style="border:0;border-radius: 20px;"
+                          
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>                       
+                {% endif %}
+            </div>
+        </div>
+        <div class="columna-imagenes">
+            <div class="galeria-referencias">
+                {% if data.reference_one %}
+                    <div class="contact-photo-card">
+                        <img src="{{ file_url(data.reference_one) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
+                    </div>
+                {% endif %}
+                {% if data.reference_two %}
+                    <div class="contact-photo-card">
+                        <img src="{{ file_url(data.reference_two) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</section> 
 
 <section>
     <div class="contact-two-columns contact-block-form">
         <div class="contact-column-left contact-left">
-            <h3 class="contact-form-title">Contactanos</h3>
-            <p class="contact-form-text">¿Listo para empezar su proyecto con nosotros? Contáctenos hoy mismo.</p>
-            <div class="contact-social">
-                {% if data.facebook %}
-                <a href="{{ data.facebook }}" target="_blank" class="text-white"><i class="fab fa-facebook-f fs-2x"></i></a>
-                {% endif %}
-
-                {% if data.twitter %}
-                <a href="{{ data.twitter }}" target="_blank" class="text-white"><i class="fab fa-x-twitter fs-2x"></i></a>
-                {% endif %}
-
-                {% if data.instagram %}
-                <a href="{{ data.instagram }}" target="_blank" class="text-white"><i class="fab fa-instagram fs-2x"></i></a>
-                {% endif %}
-
-                {% if data.linkedin %}
-                <a href="{{ data.linkedin }}" target="_blank" class="text-white"><i class="fab fa-linkedin fs-2x"></i></a>
-                {% endif %}
-
-                {% if data.youtube %}
-                <a href="{{ data.youtube }}" target="_blank" class="text-white"><i class="fab fa-youtube fs-2x"></i></a>
-                {% endif %}
-
-                {% if data.vimeo %}
-                <a href="{{ data.vimeo }}" target="_blank" class="text-white"><i class="fab fa-vimeo-v fs-2x"></i></a>
-                {% endif %}
-
-                {% if data.telegram %}
-                <a href="{{ data.telegram }}" target="_blank" class="text-white"><i class="fab fa-telegram fs-2x"></i></a>
-                {% endif %}
-
-                {% if data.whatsapp %}
-                <a href="{{ data.whatsapp }}" target="_blank" class="text-white"><i class="fab fa-whatsapp fs-2x"></i></a>
-                {% endif %}
-            </div>
+            {% if data.address %}
+                <iframe 
+                    title="Mapa empresa"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.202981885479!2d-99.19018608463063!3d19.436448986886808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff327f229bdb%3A0x2dd867476faa16a7!2s{{ data.address | url_encode }}!5e0!3m2!1sen!2s!4v1745184963288!5m2!1sen!2s"
+                    width="100%" 
+                    height="600px" 
+                    style="border:0;"  
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>                       
+            {% endif %}
         </div>
         <div class="contact-column-right ">
-            <div class='contact-form-layout'>
-                {{ data.form }}
+            <div class="galeria-referencias">
+                {% if data.reference_one %}
+                    <div class="contact-photo-card">
+                        <img src="{{ file_url(data.reference_one) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
+                    </div>
+                {% endif %}
+                {% if data.reference_two %}
+                    <div class="contact-photo-card">
+                        <img src="{{ file_url(data.reference_two) }}" alt="{{ 'Referencia'|t }}" loading="lazy">
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
-
-
-
-
-  
 {% endif %}	
+
