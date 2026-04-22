@@ -1,3 +1,7 @@
+#products-block {
+    padding-top: 25px;
+}
+
 #products-block .product,
 #services-block .service {
     -webkit-box-shadow: 0 0 6px #cacbda;

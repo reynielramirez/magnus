@@ -7,11 +7,11 @@
 #}
 
 <div id='field-services-view' class="node-taxonomy-container">
-  <h3 class="view-title values-title">Modulos</h3>
+  <h3 class="view-title values-title">{{"Sub-servicios"|t}}</h3>
     <div class="separator"></div>
 		<div class='services-items view-content container'>
 
-			<div class="container">
+			<div class="services-container">
 				<div class="items">
           {% for item in items %}
             {% set referenced_entity = item.content['#entity'] %}

@@ -1,6 +1,7 @@
 /* Estilos base */
 .local-section {
   background-color: #dde8f4; /* Fondo suave */
+  padding: 25px 0;
 }
 
 .local-section .container {
