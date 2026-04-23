@@ -70,6 +70,12 @@
 									<p>
 										{{ item.get('field_summary').value }}
 									</p>
+									<p>
+										<a class="view-details-btn" href="{{ url('entity.node.canonical', {'node': item.id}) }}">
+											{{ 'Read more'|t }}
+											<i class="fas fa-arrow-right"></i>
+										</a>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -77,10 +83,12 @@
 					{% endfor %}
 
 				</div>
-				<div>
-					<button href="#newsletter">
-						✉️ Suscríbete para recibir más noticias
-					</button>
+				<div class="separator"></div>
+				<div style="text-align: center;">
+					<a href="#newsletter" class="btn-suscribirse">
+						{{'Suscríbete para recibir más noticias'}}
+						<i class="fas fa-arrow-down"></i>
+					</a>
 				</div>
 			</div>
 		</div>

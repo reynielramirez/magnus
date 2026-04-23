@@ -36,6 +36,12 @@
 							<div>
 								<div>
 									<p> {{ item.get('field_summary').value }} </p>
+									<p>
+										<a class="view-details-btn" href="{{ url('entity.node.canonical', {'node': item.id}) }}">
+											{{ 'Read more'|t }}
+											<i class="fas fa-arrow-right"></i>
+										</a>
+									</p>
 								</div>
 							</div>
 						</div>

@@ -3,6 +3,10 @@
 {% set direccion = data.address %}
 {% set direccion_to_map = direccion|url_encode %}
 
+{% set call_cell = data.phone|replace({' ': ''}) %}
+{% set call_cell = call_cell|replace({'Ext.': ',,'}) %}
+{% set tel_link = 'tel:' ~ call_cell %}
+
     <div id="contacts-block">
 
         <h2 class="block-title">{{ 'Contact Us'|t }}</h2>
@@ -12,8 +16,8 @@
             <h4 class="contact-address">
                 <a href="https://www.google.com/maps?q={{ direccion_to_map }}" 
                     target="_blank">{{ data.address }}</a> </h4>
-            <h4 class="contact-phone"> {{ 'Phone:'|t }} {{ data.phone }} </h4>
-            <h4 class="contact-email"> {{ 'Email:'|t }} {{ data.email }} </h4>
+            <h4 class="contact-phone"> {{ 'Phone:'|t }} <a href="{{ tel_link }}">{{ data.phone }}</a> </h4>
+            <h4 class="contact-email"> {{ 'Email:'|t }} <a href="mailto:{{ data.email }}">{{ data.email }}</a> </h4>
 
             <ul class="social-icons">
 
