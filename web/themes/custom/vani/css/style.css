@@ -236,7 +236,7 @@ a {
   background-color: transparent;
   text-decoration: none;
   -webkit-transition: color 0.4s ease;
-  transition: color 0.4s ease;
+transition: color 0.4s ease;
 }
 
 a:active,
@@ -3516,12 +3516,11 @@ img.svg-icon {
 }
 
 .view-details-btn {
-  background-color: #faa663;
-  color: white;
-  padding: 10px 20px;
+  background: transparent;
+  color: var(--theme-color-one);
+  padding: 7px 20px;
   border-radius: 25px;
   font-size: 0.85rem;
-  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   text-decoration: none;
@@ -3529,7 +3528,7 @@ img.svg-icon {
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-  border: none;
+  border: 1px solid var(--theme-color-one);;
 }
 
 .view-download-btn {
