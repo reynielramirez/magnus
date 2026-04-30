@@ -12,8 +12,8 @@
         {% if link.field_image.target_id %}
         <a href='{{ link.get("field_link").uri }}' target='_blank' class="site-item">
           <div class="site-item-with-image">
-            <img src="{{ file_url(link.get('field_image').entity.uri.value) }}" alt="{{ link.get('title').value }} 
-                     class=" site-thumb">
+            <img src="{{ file_url(link.get('field_image').entity.uri.value) }}" alt="{{ link.get('title').value }}" 
+                     class="site-thumb">
           </div>
         </a>
         {% endif %}
