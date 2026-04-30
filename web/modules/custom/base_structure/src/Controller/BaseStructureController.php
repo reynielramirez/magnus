@@ -117,15 +117,32 @@ class BaseStructureController extends ControllerBase {
         $data["banner"] = $service->getConfigURL("products_banner");
 		$data["text"] = $service->getConfigText("products_text");
 
+		$database = \Drupal::database();
 
-		$node_ids = Drupal::entityQuery('node')
-            ->condition('type','products')
-            ->condition('langcode',$language)
-            ->condition('status', 1)
-            ->accessCheck(FALSE)
+		$subquery = $database->select('node__field_productos', 'f');
+		$subquery->addField('f', 'field_productos_target_id');
+		$subquery->distinct();
+		$subquery->join('node_field_data', 'padre', 'f.entity_id = padre.nid');
+		$subquery->join('node_field_data', 'hijo', 'f.field_productos_target_id = hijo.nid');
+		$subquery->condition('padre.status', 1);
+		$subquery->condition('padre.type', 'products');
+		$subquery->condition('hijo.status', 1);
+		$subquery->condition('hijo.type', 'products');
+
+		$subproductos = $subquery->execute()->fetchCol();
+
+		$query = \Drupal::entityQuery('node')
+			->condition('type', 'products')
+			->condition('status', 1)
+			->accessCheck(FALSE)
 			->addTag('pager')
-			->pager(9)
-            ->execute();
+			->pager(9);
+
+		if ($subproductos) {
+			$query->condition('nid', $subproductos, 'NOT IN');
+		}
+
+		$node_ids = $query->execute();
 
 		if(!empty($node_ids)){
             $nodes = Node::loadMultiple($node_ids);
@@ -203,7 +220,7 @@ class BaseStructureController extends ControllerBase {
 			->sort("field_date","DESC")
             ->accessCheck(FALSE)
 			->addTag('pager')
-			->pager(9)
+			->pager(6)
             ->execute();
 
 		if(!empty($node_ids)){

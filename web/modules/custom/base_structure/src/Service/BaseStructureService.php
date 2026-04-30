@@ -4,6 +4,7 @@ namespace Drupal\base_structure\Service;
 
 use Drupal\Core\Entity\Query\QueryInterface;
 use Drupal\file\Entity\File;
+use Drupal;
 
 class BaseStructureService {
     protected $config;
@@ -293,6 +294,94 @@ class BaseStructureService {
             '#rows' => 8,
             '#description' => t('Puedes usar formato HTML básico.'),
         ];
+    }
+
+    public function clearProductos()
+    {
+        $database = Drupal::database();
+
+        // Método más agresivo: eliminar usando LEFT JOIN
+        $deleted = $database->query("
+            DELETE fr 
+            FROM node__field_productos fr
+            LEFT JOIN node_field_data n ON fr.entity_id = n.nid
+            WHERE n.nid IS NULL
+        ")->execute();
+
+        $deleted2 = $database->query("
+            DELETE fr 
+            FROM node__field_productos fr
+            LEFT JOIN node_field_data n ON fr.field_productos_target_id = n.nid
+            WHERE n.nid IS NULL
+        ")->execute();
+
+        // También limpiar la tabla de revisiones
+        $database->query("
+            DELETE fr 
+            FROM node_revision__field_productos fr
+            LEFT JOIN node_field_data n ON fr.entity_id = n.nid
+            WHERE n.nid IS NULL
+        ")->execute();
+
+        $database->query("
+            DELETE fr 
+            FROM node_revision__field_productos fr
+            LEFT JOIN node_field_data n ON fr.field_productos_target_id = n.nid
+            WHERE n.nid IS NULL
+        ")->execute();
+
+        \Drupal::logger('debug')->debug('Registros eliminados de node__field_productos (padre): @count', ['@count' => $deleted]);
+        \Drupal::logger('debug')->debug('Registros eliminados de node__field_productos (hijo): @count', ['@count' => $deleted2]);
+
+        // Verificar cuántos registros quedan
+        $restantes = $database->select('node__field_productos', 'f')
+            ->countQuery()
+            ->execute()
+            ->fetchField();
+
+        \Drupal::logger('debug')->debug('Registros restantes en node__field_productos: @count', ['@count' => $restantes]);
+
+        // Mostrar las relaciones que quedan (deberían ser solo las válidas)
+        if ($restantes > 0) {
+            $relaciones = $database->select('node__field_productos', 'f')
+                ->fields('f', ['entity_id', 'field_productos_target_id'])
+                ->execute()
+                ->fetchAll();
+            
+            foreach ($relaciones as $rel) {
+                \Drupal::logger('debug')->debug('Relación válida: Padre @padre -> Hijo @hijo', [
+                    '@padre' => $rel->entity_id,
+                    '@hijo' => $rel->field_productos_target_id
+                ]);
+            }
+        }
+
+        $database = Drupal::database();
+
+        // Ver todos los productos activos
+        $todos_ids = Drupal::entityQuery('node')
+            ->condition('type', 'products')
+            ->condition('status', 1)
+            ->accessCheck(FALSE)
+            ->execute();
+
+        \Drupal::logger('debug')->debug('=== PRODUCTOS ACTIVOS ===');
+        \Drupal::logger('debug')->debug('IDs: @ids', ['@ids' => implode(', ', $todos_ids)]);
+
+        // Obtener subproductos (ahora solo los válidos)
+        $subproductos_ids = $database->select('node__field_productos', 'f')
+            ->fields('f', ['field_productos_target_id'])
+            ->distinct()
+            ->execute()
+            ->fetchCol();
+
+        \Drupal::logger('debug')->debug('=== SUBPRODUCTOS VÁLIDOS ===');
+        \Drupal::logger('debug')->debug('IDs: @ids', ['@ids' => implode(', ', $subproductos_ids)]);
+
+        // Resultado final
+        $resultado_final = array_diff($todos_ids, $subproductos_ids);
+        \Drupal::logger('debug')->debug('=== PRODUCTOS NO SUBPRODUCTOS ===');
+        \Drupal::logger('debug')->debug('IDs: @ids', ['@ids' => implode(', ', $resultado_final)]);
     }
 
 }
