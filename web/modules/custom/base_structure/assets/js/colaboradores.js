@@ -5,7 +5,7 @@
         let slider = $('#colaboradores-slider');
 
         slider.owlCarousel({
-            items: 1,
+            items: 2,
             autoplay: true,
             autoplaySpeed: 300,
             loop: true,

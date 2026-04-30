@@ -4,12 +4,18 @@
 
 <div id="newsletter" class="newsletter-section">
   <div class="newsletter-container">
-    <div class="newsletter-content">
-      <h3 class="newsletter-title">{{ 'Suscríbete a nuestro newsletter'|t }}</h3>
-      <p class="newsletter-text">{{ 'Recibe las últimas novedades y ofertas especiales'|t }}</p>
+    <div class="newsletter-grid">
+      <!-- Columna izquierda: Textos -->
+      <div class="newsletter-text-content">
+        <h3 class="newsletter-title">{{ 'Suscríbete a nuestro newsletter'|t }}</h3>
+        <p class="newsletter-text">{{ 'Recibe las últimas novedades y ofertas especiales'|t }}</p>
+      </div>
       
-      <div class="form-group">
-        {{ data.form }}
+      <!-- Columna derecha: Formulario -->
+      <div class="newsletter-form-content">
+        <div class="form-group">
+          {{ data.form }}
+        </div>
       </div>
     </div>
   </div>

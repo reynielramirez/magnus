@@ -33,8 +33,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 8px 16px 8px 8px;
   border-radius: 50px;
   transition: all 0.3s ease;
 }
@@ -45,11 +43,13 @@
 }
 
 .site-thumb {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
   object-fit: cover;
   border: 2px solid #58b4ed;
+  max-width: 150px;
+  max-height: auto;
 }
 
 .site-name {

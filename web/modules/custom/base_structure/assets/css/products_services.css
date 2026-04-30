@@ -37,7 +37,7 @@
 #services-block img,
 #products-view .items img,
 #services-view .items img {
-    height: 75px;
+    height: 40px;
     width: auto;
     margin: auto;
 }
