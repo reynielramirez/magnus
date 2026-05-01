@@ -38,6 +38,23 @@
 
 		<div class="separator"></div>
 		{#  <h2 class="view-title"> {{ 'Our Blog'|t }} </h2> #}
+							{# Si quieres ver si hay resultado #}
+			<nav aria-label="Breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="/">{{ 'Home'|t }}</a>
+					</li>
+					{# <li class="breadcrumb-item">
+						<a href="/productos">
+							
+						</a>
+					</li> #}
+					<li class="breadcrumb-item active" aria-current="page">
+						{{ 'Our Blog'|t }}
+					</li>
+				</ol>
+			</nav>
+			<div class="separator"></div>
 
 		<div class='news-items view-content container'>
 

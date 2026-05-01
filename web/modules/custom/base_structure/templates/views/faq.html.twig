@@ -39,6 +39,23 @@
 		
 		<div class="separator"></div>
 		{#  <h2 class="view-title"> {{ 'FAQ'|t }} </h2> #}
+					{# Si quieres ver si hay resultado #}
+			<nav aria-label="Breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">
+						<a href="/">{{ 'Home'|t }}</a>
+					</li>
+					{# <li class="breadcrumb-item">
+						<a href="/productos">
+							
+						</a>
+					</li> #}
+					<li class="breadcrumb-item active" aria-current="page">
+						{{ 'FAQ'|t }}
+					</li>
+				</ol>
+			</nav>
+			<div class="separator"></div>
 
 		<div class='faq-items view-content container'>
 			<div class="nire-accordion"> 
