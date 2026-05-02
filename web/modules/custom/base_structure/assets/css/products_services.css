@@ -95,6 +95,7 @@
 #services-view .service-icon {
   margin-bottom: 0.4rem;
   transition: transform 0.3s linear;
+  text-align: center;
 }
 
 #products-view .product-icon {
