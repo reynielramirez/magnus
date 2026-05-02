@@ -3597,4 +3597,30 @@ img.svg-icon {
 .breadcrumb-item.active {
     color: #6c757d;
 }
+/* 
+.social-share-float-wrapper-left,
+.social-share-btns { */
+.social-share-float-wrapper-left {
+  position: static !important;
+  transform: none !important;
+  margin: 2.5rem 0;
+}
+.social-share-btns {
+  display: flex;
+}
+
+.social-share-btns a{
+  border-radius: 0.3rem;
+  padding: 0 !important;
+}
+.social-share-float-left,
+.social-share-btns {
+  flex-direction: initial !important;
+  gap: 0.5rem !important;
+  justify-content: left !important;
+}
+
+.social-share-btns .social-media-share-label{
+  display: none !important;
+}
 
