@@ -116,6 +116,11 @@
                 "  * Get support: https://drupal.org/support",
                 "  * Get involved with the Drupal community: https://drupal.org/getting-involved"
             ]
+        },
+        "patches": {
+            "drupal/better_social_share": {
+                "Fix 'once is not defined' JavaScript error": "patches/better_social_share-once-fix.patch"
+            }
         }
     }
 }
