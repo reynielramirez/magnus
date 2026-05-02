@@ -3577,6 +3577,11 @@ img.svg-icon {
     background-color: #f8f9fa;
     border-radius: 0.25rem;
 }
+.breadcrumb-item {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 15px;
+}
 
 .breadcrumb-item + .breadcrumb-item {
     padding-left: 0.5rem;
@@ -3590,12 +3595,20 @@ img.svg-icon {
 }
 
 .breadcrumb-item a {
-    color: #007bff;
+    color: var(--theme-color-three);
+    background-color: transparent;
     text-decoration: none;
+    -webkit-transition: color 0.4s ease;
+    transition: color 0.4s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--theme-color-one);
+
 }
 
 .breadcrumb-item.active {
-    color: #6c757d;
+    color: var(--theme-color-one);
 }
 /* 
 .social-share-float-wrapper-left,
