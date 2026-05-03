@@ -190,7 +190,9 @@ class BaseStructureController extends ControllerBase {
 		$query = \Drupal::entityQuery('node')
 			->condition('type', 'services')
 			->condition('status', 1)
-			->accessCheck(FALSE);
+			->accessCheck(FALSE)
+			->addTag('pager')
+			->pager(9);
 
 		if ($subservicios) {
 			$query->condition('nid', $subservicios, 'NOT IN');
