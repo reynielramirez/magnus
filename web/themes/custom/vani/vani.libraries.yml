@@ -18,6 +18,7 @@ global-scripts:
   js:
     js/atlas.js: {}
     js/feedback.js: {}
+    js/inject-instagram.js: {}
   dependencies:
     - core/drupal
     - core/jquery
